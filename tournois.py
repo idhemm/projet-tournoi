@@ -8,6 +8,7 @@ class Tournoi:
         self.joueurs = []
         self.matchs = []
 
+    # 1. Charger les joueurs depuis un fichier CSV
     def charger_joueurs(self, chemin_fichier):
         donnees = lire_csv(chemin_fichier)
         for ligne in donnees:
@@ -22,6 +23,7 @@ class Tournoi:
                 return joueur
         return None
 
+    # 2. Charger les matchs depuis un fichier CSV
     def charger_matchs(self, chemin_fichier):
         donnees = lire_csv(chemin_fichier)
         for ligne in donnees:
@@ -33,6 +35,7 @@ class Tournoi:
                 match = Match(joueur1, joueur2)
                 self.matchs.append(match)
 
+    # 3. Saisir les scores des matchs
     def saisir_scores(self):
         for match in self.matchs:
             print(f"\nMatch : {match.joueur1.pseudo} vs {match.joueur2.pseudo}")
@@ -43,12 +46,14 @@ class Tournoi:
             except ValueError:
                 print("Entrée invalide. Ce match sera ignoré.")
 
+    # 4. Afficher le classement final
     def afficher_classement(self):
         classement = sorted(self.joueurs, key=lambda j: j.victoires, reverse=True)
         print("\nClassement final :")
         for i, joueur in enumerate(classement, 1):
             print(f"{i}. {joueur.pseudo} - {joueur.victoires} victoires")
 
+    # 5. Sauvegarder le tournoi en JSON
     def sauvegarder_json(self, chemin_fichier):
         tournoi_dict = {
             "nom": self.nom,
@@ -59,6 +64,7 @@ class Tournoi:
         }
         sauvegarder_json(tournoi_dict, chemin_fichier)
 
+    # 6. Générer un rapport final en texte
     def generer_rapport(self, chemin_fichier):
         rapport = f"Rapport du tournoi : {self.nom}\n"
         rapport += "=" * 30 + "\n\n"

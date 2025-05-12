@@ -20,10 +20,14 @@ def main():
 
         if choix == "1":
             tournoi.charger_joueurs("data/joueurs.csv")
-            print("Joueurs chargés.")
+            print("Joueurs chargés:")
+            for joueur in tournoi.joueurs:
+                print(f"- {joueur}")
         elif choix == "2":
             tournoi.charger_matchs("data/matchs.csv")
             print("Matchs chargés.")
+            for match in tournoi.matchs:
+                print(f"- {match}")
         elif choix == "3":
             tournoi.saisir_scores()
         elif choix == "4":

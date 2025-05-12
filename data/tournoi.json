@@ -1,0 +1,21 @@
+{
+    "nom": "Tournoi Printemps",
+    "joueurs": [
+        {
+            "pseudo": "Alice",
+            "victoires": 0
+        },
+        {
+            "pseudo": "Bob",
+            "victoires": 0
+        },
+        {
+            "pseudo": "Charlie",
+            "victoires": 0
+        },
+        {
+            "pseudo": "David",
+            "victoires": 0
+        }
+    ]
+}
